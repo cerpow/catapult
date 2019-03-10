@@ -1,0 +1,22 @@
+footer {
+   position: fixed;
+   width: 100%;
+   left: 0;
+   bottom: 0;
+   height: 49px;
+   background-color: $black-darker;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-sizing: border-box;
+   border-right: 2px solid $black-darker;
+   border-bottom: 2px solid $black-darker;
+   border-left: 2px solid $black-darker;
+   border-radius: 0 0 5px 5px;
+}
+
+.dragOver footer {
+   border-right: 2px solid $blue;
+   border-bottom: 2px solid $blue;
+   border-left: 2px solid $blue;
+}

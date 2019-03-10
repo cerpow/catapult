@@ -1,0 +1,21 @@
+$black: #1d1d22;
+$black-darker: darken($black, 1.75%);
+$black-lighter: lighten($black, 1.75%);
+$red: #c71e37;
+$grey: #4d4d5a;
+$blue: #468cf8;
+
+@import '_general.scss';
+@import '_nav.scss';
+@import '_getstarted.scss';
+@import '_editproject.scss';
+@import '_projects.scss';
+@import '_footer.scss';
+@import '_error.scss';
+
+.sortable-ghost {
+   .project-data,
+   .project-image {
+      opacity: 0;
+   }
+}

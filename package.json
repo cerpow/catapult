@@ -1,0 +1,57 @@
+{
+	"name": "Catapult",
+	"version": "1.0.0",
+	"description": "Access your workspace on the fly.",
+	"main": "main.js",
+	"scripts": {
+		"start": "gulp start",
+		"dev": "NODE_ENV=dev gulp start",
+		"build": "electron-builder"
+	},
+	"repository": "https://github.com/cerpow/catapult.git",
+	"author": "Voicu Apostol",
+	"keywords": [
+		"catapult",
+		"app",
+		"macOS",
+		"mac app",
+		"workspace",
+		"launch",
+		"manager",
+		"launchpad",
+		"project",
+		"electron",
+		"atom",
+		"shortcut"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"auto-launch": "^5.0.5",
+		"electron-config": "^2.0.0",
+		"jquery": "^3.3.1",
+		"mac-open": "^0.1.3",
+		"menubar": "^5.2.3",
+		"sortablejs": "^1.8.3"
+	},
+	"devDependencies": {
+		"electron": "^4.0.4",
+		"electron-builder": "^20.38.5",
+		"gulp": "^3.9.1",
+		"gulp-clean": "^0.4.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-minify": "^3.1.0",
+		"gulp-riot": "^1.1.5",
+		"gulp-run-electron": "^3.0.2",
+		"gulp-sass": "^4.0.2",
+		"run-sequence": "^2.2.1"
+	},
+	"build": {
+		"appId": "com.pixroad.app",
+		"mac": {
+			"category": "public.app-category.utilities"
+		},
+		"directories": {
+			"buildResources": "app/assets/build"
+		}
+	}
+}

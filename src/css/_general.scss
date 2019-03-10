@@ -1,0 +1,106 @@
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 14px;
+    color: white;
+    background-color: $black;
+    box-sizing: border-box;
+    font-weight: 500;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    line-height: 22px;
+}
+
+body,
+ul,
+li,
+h1,
+input,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    font-size: inherit;
+}
+
+a {
+    font-weight: bold;
+    color: $blue;
+    text-decoration: none;
+}
+
+p {
+    color: $grey;
+    margin: 8px 0;
+}
+
+.dragOver {
+    border: 2px solid $blue;
+}
+
+#app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    font: inherit;
+    font-size: inherit;
+    color: inherit;
+    border: 0;
+    background-color: transparent;
+    padding: 5px 3px;
+    border: 1px solid transparent;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 6px;
+    max-width: 150px;
+    width: auto;
+    display: inline;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $blue;
+    }
+
+    &::placeholder {
+        font: inherit;
+        font-size: inherit;
+        color: $grey;
+    }
+}
