@@ -2,7 +2,7 @@ const { app, ipcMain, dialog } = require('electron');
 const config = new (require('electron-config'))();
 const AutoLaunch = require('auto-launch');
 const menubar = require('menubar');
-const open = require('mac-open');
+const open = require('open');
 const path = require('path');
 const fs = require('fs');
 
@@ -61,16 +61,10 @@ ipcMain.on('saveLastApplication', (e, application) => {
 
 //OPEN PROJECT
 ipcMain.on('openProject', (e, project) => {
-	open(
-		project.path,
-		{
-			a: project.openIn
-		},
-		function(err) {
-			if (!err) return;
-			e.sender.send('error', err.message);
-		}
-	);
+	if (!fs.existsSync(project.path)) {
+		return e.sender.send('error', project.path + ' does not exist.');
+	}
+	open(project.path, { app: project.openIn });
 });
 
 //SAVE ICON

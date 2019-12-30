@@ -20,7 +20,7 @@ riot.mount('app');
 ipcRenderer.on('error', (e, error) => {
 	isError = {
 		title: 'Failed To Open Project',
-		description: error.split('\n')[1]
+		description: error
 	};
 	riot.update();
 });
