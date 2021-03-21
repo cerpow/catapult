@@ -1,0 +1,35 @@
+.projects {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 51px;
+}
+
+.project {
+	cursor: pointer;
+	display: flex;
+	padding: 10px 14px;
+	align-items: center;
+
+	&:hover {
+		background-color: var(--hover-bg-color);
+	}
+
+	img {
+		width: 40px;
+		margin-right: 14px;
+	}
+}
+
+.projects-search{
+	width: calc(100% - 60px);
+	background-color: var(--hover-bg-color);
+	margin: 14px 14px;
+}
+
+hr {
+	height: 2px;
+	background-color: var(--main-font-color);
+	border: 0;
+	margin: 0;
+	opacity: .1;
+}

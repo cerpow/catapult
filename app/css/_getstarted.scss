@@ -1,0 +1,41 @@
+.get-started {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -54%);
+
+	img {
+		display: inherit;
+	}
+
+	p {
+		margin-top: 20px;
+		text-align: center;
+		width: 220px;
+	}
+}
+
+.get-started-image {
+	position: relative;
+}
+
+.ico-flower {
+	position: absolute;
+	bottom: 2px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	@media (prefers-color-scheme: dark) {
+		opacity: 0.3;
+	}
+}
+
+.get-started-image-drag {
+	display: none;
+	img {
+		opacity: 1;
+	}
+}
