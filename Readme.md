@@ -13,4 +13,4 @@ Catapult is a simple macOS app based on [Electron](https://github.com/electron/e
 ### Created by
 
 Voicu Apostol  
-https://www.pixroad.com
+https://www.cerpow.com
