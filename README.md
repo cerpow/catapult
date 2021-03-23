@@ -50,7 +50,7 @@ Catapult uses the following open source packages:
 
 
 
-### Contibute
+### Contribute
 
 ```
 git clone https://github.com/cerpow/catapult.git
