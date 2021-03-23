@@ -53,9 +53,16 @@ Catapult uses the following open source packages:
 ### Contribute
 
 ```
+//Clone Repo
 git clone https://github.com/cerpow/catapult.git
+
+//Navigate to folder
 cd catapult
+
+//Install dependencies
 npm install
+
+//Run Catapult (Developer mode)
 npm start
 ```
 
