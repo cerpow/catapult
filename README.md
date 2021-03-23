@@ -1,8 +1,15 @@
  <img src="app/assets/_data/Icon.png" alt="Catapult" width="100">
 
 # Catapult for macOS
+<p>
+<img src="https://img.shields.io/github/release-date/cerpow/catapult?color=green">
+<img src="https://img.shields.io/github/package-json/v/cerpow/catapult">
+  <img src="https://img.shields.io/github/stars/cerpow/catapult?style=social">
+</p>
 
 A project launcher app built on top of <a href="http://electron.atom.io" target="_blank">Electron</a>.
+
+
 
 <p>
    <a href="#about">About</a> •
