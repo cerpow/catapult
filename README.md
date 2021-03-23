@@ -2,7 +2,7 @@
 
 # Catapult for macOS
 
-A project launcher menu app built on top of <a href="http://electron.atom.io" target="_blank">Electron</a>.
+A project launcher app built on top of <a href="http://electron.atom.io" target="_blank">Electron</a>.
 
 <p>
    <a href="#about">About</a> •
