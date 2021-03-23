@@ -6,7 +6,7 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
 <p>
 <img src="https://img.shields.io/github/release-date/cerpow/catapult?color=green">
 <img src="https://img.shields.io/github/package-json/v/cerpow/catapult">
-<a href="https://github.com/cerpow/catapult/releases"></a><img src="https://img.shields.io/badge/Download-Catapult-orange"></a>
+<a href="https://github.com/cerpow/catapult/releases"><img src="https://img.shields.io/badge/Download-Catapult-orange"></a>
 <img src="https://img.shields.io/github/stars/cerpow/catapult?style=social">
 </p>
 
