@@ -1,4 +1,4 @@
- <img src="https://github.com/cerpow/catapult/blob/master/src/_data/Icon.png?raw=true" alt="Markdownify" width="100">
+ <img src="src/_data/Icon.png" alt="Catapult" width="100">
 
 # Catapult for macOS
 
