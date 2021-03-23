@@ -1,4 +1,4 @@
- <img src="src/_data/Icon.png" alt="Catapult" width="100">
+ <img src="app/assets/_data/Icon.png" alt="Catapult" width="100">
 
 # Catapult for macOS
 
