@@ -6,11 +6,13 @@ async function Home() {
 	let html = '';
 	return new Promise((r) => {
 		//Settings Icon
-		html += '<div class="settings"><img draggable="false" src="./assets/ico_settings.svg"></div>';
 
 		//Search
-		html += '<input class="projects-search" type="text" placeholder="Search...">';
-		html += '<hr>';
+		html += '<div class="projects-search">';
+		html += '<img class="project-search-icon" src="./assets/ico_search.svg">';
+		html += '<input type="text" spellcheck="false" placeholder="Search...">';
+		html += '<div class="settings"><img draggable="false" src="./assets/ico_settings.svg"></div>';
+		html += '</div><hr>';
 
 		//Projects List Screen
 		html += '<div class="projects">';
@@ -72,7 +74,7 @@ $('body').on('click', '.project', async (e) => {
 	open(path, { app: { name: openIn } });
 
 	//Clear Search
-	$('.projects-search').val('').trigger('input');
+	$('.projects-search input').val('').trigger('input');
 });
 
 //New Project Dialog
@@ -101,9 +103,9 @@ $('body').on('click', '.addProject', async () => {
 });
 
 //Search Projects
-$('body').on('input', '.projects-search', () => {
+$('body').on('input', '.projects-search input', () => {
 	//Search term
-	const term = $('.projects-search').val().toLowerCase();
+	const term = $('.projects-search input').val().toLowerCase();
 
 	//Get results
 	let results = projects.filter((project) => project.title.toLowerCase().includes(term));
