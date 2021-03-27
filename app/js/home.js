@@ -36,7 +36,7 @@ function renderProjects(projects) {
 
 	//Loop Projects
 	projects.forEach((project) => {
-		html += '<div class="project" openIn="' + project.openIn + '" path="' + project.path + '">';
+		html += '<div class="project" openIn="' + project.openIn + '" path="' + project.path + '" i="' + project.i + '">';
 		html += '<img draggable="false" src="' + project.image + '">';
 		html += '<div class="project-info"><h1>' + project.title + '</h1>';
 		html += '<p>' + project.openIn + '</p></div>';

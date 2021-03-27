@@ -64,6 +64,7 @@ $('body').on('click', '.project-edit', async () => {
 
 	//Set Edit Project
 	projects[contextProject] = {
+		i: contextProject,
 		title: projectTitle,
 		path: projectPath,
 		image: projectIcon,
@@ -98,6 +99,7 @@ $('body').on('click', '.project-save', async () => {
 
 	//Set New Project
 	projects.push({
+		i: projects.length,
 		title: projectTitle,
 		path: projectPath,
 		image: projectIcon,

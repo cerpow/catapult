@@ -18,9 +18,10 @@ const path = require('path');
 //Set Dark Mode
 remote.nativeTheme.themeSource = DB.get('theme');
 
-//Get Projects
-let projects = DB.get('projects');
+//Get Projects + Set ID
 let contextProject = null;
+let projects = DB.get('projects');
+projects.map((project, i) => (project.i = i));
 
 //On Ready Show Home
 $(() => showHome());
