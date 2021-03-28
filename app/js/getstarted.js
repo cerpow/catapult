@@ -11,7 +11,7 @@ async function GetStarted() {
 		html +=
 			'<div class="get-started-image get-started-image-drag"><img draggable="false" class="ico-flower" src="./assets/ico_flower_drag.svg"><img draggable="false" src="./assets/ico_file_drag.svg"></div>';
 		html += '<p>To get started, drag and drop a folder or a file here</p></div>';
-		html += '<footer><a href="#">Open Browser</a></footer>';
+		html += '<footer><a href="#" class="addProject">New Project</a></footer>';
 
 		//Resolve
 		r(html);

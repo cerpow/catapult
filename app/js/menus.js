@@ -139,6 +139,7 @@ const editMenu = Menu.buildFromTemplate([
 
 			//Delete project
 			projects.splice(contextProject, 1);
+			projects.map((project, i) => (project.i = i));
 			DB.set('projects', projects);
 
 			//Refresh Home Page
