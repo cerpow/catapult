@@ -4,7 +4,7 @@
 	"description": "Access your workspace on the fly.",
 	"main": "main.js",
 	"scripts": {
-		"start": "NODE_ENV=dev nodemon --ext '.' --exec npm run electron",
+		"dev": "NODE_ENV=dev nodemon --ext '.' --exec npm run electron",
 		"electron": "electron .",
 		"build": "electron-builder"
 	},
@@ -13,11 +13,11 @@
 	"dependencies": {
 		"@electron/remote": "^1.0.4",
 		"auto-launch": "^5.0.5",
-		"electron": "^12.0.1",
-		"electron-store": "^7.0.2",
+		"electron": "^13.1.1",
+		"electron-store": "^8.0.0",
 		"extract-file-icon": "^0.3.2",
 		"jquery": "^3.5.1",
-		"open": "^8.0.2"
+		"open": "^8.2.0"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.7"

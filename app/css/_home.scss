@@ -29,6 +29,7 @@
 
 	input {
 		padding-left: 26px;
+		padding-right: 30px;
 		width: 100%;
 		background-color: var(--hover-bg-color);
 	}
@@ -49,6 +50,23 @@
 
 	@media (prefers-color-scheme: dark) {
 		opacity: 0.8;
+	}
+}
+
+.projects-search-reset {
+	cursor: pointer;
+	position: absolute;
+	right: 44px;
+	fill: var(--main-font-color);
+	opacity: 0.5;
+	padding: 4px;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&.hidden {
+		display: none;
 	}
 }
 
