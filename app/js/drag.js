@@ -5,7 +5,7 @@ let lastenter;
 $(document).on('dragenter', (e) => {
 	e.preventDefault();
 	lastenter = e.target;
-	$('body').addClass('drag');
+	$('.drag').show();
 });
 
 // //On Drag Enter
@@ -14,7 +14,7 @@ $(document).on('dragover', (e) => e.preventDefault());
 //On Drag Leave
 $(document).on('dragleave', (e) => {
 	e.preventDefault();
-	if (lastenter === e.target) $('body').removeClass('drag');
+	if (lastenter === e.target) $('.drag').hide();
 });
 
 //On Drop
@@ -28,7 +28,7 @@ $(document).on('drop', async function (e) {
 	let isFolder = isApp ? false : fs.statSync(file.path).isDirectory();
 
 	//Hide Blue Border
-	$('body').removeClass('drag');
+	$('.drag').hide();
 
 	//Get Icon
 	let icon = isFolder ? './assets/icons/ico_folder.svg' : await getIcon(file.path);

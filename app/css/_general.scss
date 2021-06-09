@@ -17,7 +17,7 @@
 	--main-bg-color: white;
 	--secondary-bg-color: #e8f1ff;
 	--hover-bg-color: #edf1f5;
-	--main-font-color: #808aa4;
+	--main-font-color: #68728d;
 	--secondary-font-color: #2e3341;
 }
 
@@ -57,14 +57,10 @@ body {
 	font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
 	background-color: var(--main-bg-color);
 	-webkit-font-smoothing: antialiased;
-	border: 2px solid transparent;
 	color: var(--main-font-color);
-	border-radius: 10px;
 	height: 100vh;
 	box-sizing: border-box;
-	letter-spacing: 0.2px;
 	line-height: 1.5;
-	font-weight: 500;
 	font-size: 14px;
 }
 
@@ -78,19 +74,15 @@ a {
 
 //App
 #app {
-	min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	height: 100vh;
 	position: relative;
 }
 
 //Drag Over
 .drag {
 	border: solid 2px var(--blue-color);
-
-	footer {
-		border-right: 2px solid var(--blue-color);
-		border-left: 2px solid var(--blue-color);
-		border-bottom: 2px solid var(--blue-color);
-	}
 
 	.get-started-image {
 		display: none;
@@ -117,14 +109,6 @@ a {
 	&:hover {
 		opacity: 1;
 	}
-
-	@media (prefers-color-scheme: dark) {
-		opacity: 0.2;
-
-		&:hover {
-			opacity: 0.4;
-		}
-	}
 }
 
 //Footer
@@ -132,15 +116,11 @@ footer {
 	display: flex;
 	justify-content: center;
 	box-sizing: border-box;
-	position: fixed;
-	bottom: 0;
-	left: 0;
 	width: 100%;
 	background-color: var(--secondary-bg-color);
 	border-right: 2px solid var(--secondary-bg-color);
 	border-left: 2px solid var(--secondary-bg-color);
 	border-bottom: 2px solid var(--secondary-bg-color);
-	border-radius: 0 0 10px 10px;
 	padding: 14px 18px;
 
 	span {
@@ -168,4 +148,15 @@ input {
 		font-size: inherit;
 		color: var(--main-font-color);
 	}
+}
+
+.drag {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 9999;
+	border-radius: 10px;
 }

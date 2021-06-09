@@ -5,7 +5,8 @@ async function Details(title, path, icon, openIn, action) {
 	if (path.length > 30) trimPath = '...' + path.substr(path.length - 30);
 	return new Promise((r) => {
 		//Close Icon
-		html += '<div class="close"><img draggable="false" src="./assets/ico_close.svg"></div>';
+		html +=
+			'<svg class="close" xmlns="http://www.w3.org/2000/svg" width="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>';
 
 		//Details Screen
 		html += '<p class="project-details-path" path="' + path + '">' + trimPath + '</p>';
@@ -15,7 +16,7 @@ async function Details(title, path, icon, openIn, action) {
 		html += '<p class="project-details-openIn">Open In: <span>' + openIn + '</span> <img src="./assets/ico_arrow.svg" alt="Dropdown" draggable="false" /></p>';
 		html += '<p class="project-details-useFinder">Use Finder</p>';
 		html += '</div>';
-		if (action == 'Edit') html += '<footer><a href="#" class="project-edit" draggable="false">Edit Project</a></footer>';
+		if (action == 'Edit') html += '<footer><a href="#" class="project-edit" draggable="false">Update Project</a></footer>';
 		if (action == 'New') html += '<footer><a href="#" class="project-save" draggable="false">Save Project</a></footer>';
 
 		//Resolve

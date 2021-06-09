@@ -1,7 +1,8 @@
 .projects {
 	width: 100%;
 	display: inline-block;
-	margin-bottom: 51px;
+	overflow-y: scroll;
+	scroll-behavior: smooth;
 }
 
 .project {
@@ -22,43 +23,37 @@
 
 .projects-search {
 	display: flex;
-	position: relative;
 	align-items: center;
 	justify-content: space-between;
-	margin: 14px 14px;
+	padding: 14px 10px 10px 14px;
+	background-color: var(--main-bg-color);
 
 	input {
-		padding-left: 26px;
-		padding-right: 30px;
-		width: 100%;
-		background-color: var(--hover-bg-color);
+		flex: 1;
+		height: 34px;
+		padding: 0 5px;
+		margin-bottom: 2px;
 	}
 
 	.settings {
 		position: unset;
-		margin-left: 15px;
+		margin-left: 10px;
 	}
 }
 
-.project-search-icon {
-	transform: translateY(-50%);
-	position: absolute;
-	width: 14px;
-	left: 8px;
-	top: 50%;
-	opacity: 0.5;
-
-	@media (prefers-color-scheme: dark) {
-		opacity: 0.8;
-	}
+.projects-search-input-wrapper {
+	display: flex;
+	align-items: center;
+	background-color: var(--hover-bg-color);
+	border-radius: 5px;
+	flex: 1;
+	padding: 0 8px;
 }
 
 .projects-search-reset {
 	cursor: pointer;
-	position: absolute;
-	right: 44px;
 	fill: var(--main-font-color);
-	opacity: 0.5;
+	opacity: 0.7;
 	padding: 4px;
 
 	&:hover {
@@ -68,12 +63,4 @@
 	&.hidden {
 		display: none;
 	}
-}
-
-hr {
-	height: 2px;
-	background-color: var(--main-font-color);
-	border: 0;
-	margin: 0;
-	opacity: 0.1;
 }
