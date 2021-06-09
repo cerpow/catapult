@@ -54,14 +54,22 @@
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	margin-top: 15px;
+	margin-top: 14px;
 }
 
 .project-details-openIn {
 	margin-top: 10px;
 	margin-bottom: auto;
+
+	&:hover {
+		color: var(--main-font-color-hover);
+	}
 }
 
 .project-details-useFinder {
 	margin-bottom: 15px;
+
+	&:hover {
+		color: var(--main-font-color-hover);
+	}
 }

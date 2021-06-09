@@ -2,11 +2,11 @@
 async function Details(title, path, icon, openIn, action) {
 	let html = '';
 	let trimPath = path;
-	if (path.length > 30) trimPath = '...' + path.substr(path.length - 30);
+	if (path.length > 28) trimPath = '...' + path.substr(path.length - 28);
 	return new Promise((r) => {
 		//Close Icon
 		html +=
-			'<svg class="close" xmlns="http://www.w3.org/2000/svg" width="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>';
+			'<svg class="close" xmlns="http://www.w3.org/2000/svg" width="26" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>';
 
 		//Details Screen
 		html += '<p class="project-details-path" path="' + path + '">' + trimPath + '</p>';

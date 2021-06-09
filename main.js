@@ -21,8 +21,8 @@ app.on('ready', () => {
 function createBrowser() {
 	//Create Menubar
 	mb = new BrowserWindow({
-		width: process.env.NODE_ENV ? 1200 : 360,
-		height: process.env.NODE_ENV ? 800 : 400,
+		width: process.env.NODE_ENV ? 1200 : 320,
+		height: process.env.NODE_ENV ? 800 : 424,
 		frame: false,
 		resizable: process.env.NODE_ENV ? true : false,
 		minimizable: false,

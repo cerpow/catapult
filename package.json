@@ -4,6 +4,7 @@
 	"description": "Access your workspace on the fly.",
 	"main": "main.js",
 	"scripts": {
+		"start": "nodemon --ext '.' --exec npm run electron",
 		"dev": "NODE_ENV=dev nodemon --ext '.' --exec npm run electron",
 		"electron": "electron .",
 		"build": "electron-builder"
