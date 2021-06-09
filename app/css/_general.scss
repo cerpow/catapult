@@ -32,6 +32,7 @@ $black: #1d1d22;
 		--secondary-bg-color: #{darken($black, 2)};
 		--hover-bg-color: #{lighten($black, 3)};
 		--main-font-color: #{lighten($black, 30)};
+		--main-font-color-hover: #{lighten($black, 40)};
 		--secondary-font-color: #{lighten($black, 80)};
 	}
 }
@@ -78,8 +79,6 @@ a {
 
 //App
 #app {
-	display: grid;
-	grid-template-rows: auto 1fr auto;
 	height: 100vh;
 	position: relative;
 }
@@ -117,6 +116,8 @@ a {
 
 //Footer
 footer {
+	position: fixed;
+	bottom: 0;
 	display: flex;
 	justify-content: center;
 	box-sizing: border-box;

@@ -64,6 +64,15 @@
 	&:hover {
 		color: var(--main-font-color-hover);
 	}
+
+	svg {
+		margin-left: 1px;
+		margin-top: 2px;
+	}
+
+	span {
+		font-weight: 500;
+	}
 }
 
 .project-details-useFinder {

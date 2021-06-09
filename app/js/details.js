@@ -13,7 +13,10 @@ async function Details(title, path, icon, openIn, action) {
 		html += '<div class="project-details-info">';
 		html += '<img class="project-details-icon" src="' + icon + '" draggable="false" alt="File Icon" />';
 		html += '<input class="project-details-name"  size="' + title.length + '" alt="' + title.length + '" type="text" placeholder="' + title + '" spellcheck="false" autofocus>';
-		html += '<p class="project-details-openIn">Open In: <span>' + openIn + '</span> <img src="./assets/ico_arrow.svg" alt="Dropdown" draggable="false" /></p>';
+		html +=
+			'<p class="project-details-openIn">Open In: <span>' +
+			openIn +
+			'</span> <svg xmlns="http://www.w3.org/2000/svg" width="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" /></svg></p>';
 		html += '<p class="project-details-useFinder">Use Finder</p>';
 		html += '</div>';
 		if (action == 'Edit') html += '<footer><a href="#" class="project-edit" draggable="false">Update Project</a></footer>';
