@@ -27,9 +27,10 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
   <a href="#contribute">Contibute</a> •
-  <a href="#download">Download</a> •
+  <a href="https://github.com/cerpow/catapult/releases">Download</a> •
   <a href="#license">License</a>
 </p>
+
 
 
 ### About
@@ -77,12 +78,6 @@ cd catapult
 yarn
 yarn dev
 ```
-
-
-
-### Download
-
-You can [download](https://github.com/cerpow/catapult/releases) the latest installable version of Catapult for macOS.
 
 
 
