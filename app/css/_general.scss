@@ -13,10 +13,11 @@
 
 //Colors
 $black: #1d1d22;
+$blue: #3786fe;
 
 // Light Theme
 :root {
-	--blue-color: #3786fe;
+	--blue-color: #{$blue};
 	--main-bg-color: white;
 	--secondary-bg-color: #e7eefc;
 	--hover-bg-color: #edf0f8;

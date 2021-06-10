@@ -23,16 +23,12 @@ let contextProject = null;
 let projects = DB.get('projects');
 projects.map((project, i) => (project.i = i));
 
-//On Ready Show Home
+//On Ready Show Home or Get Started
 $(() => showHome());
 
-//Show Home Screen
-async function showHome() {
-	//Home Screen or Get Started
-	let HTML = projects.length ? await Home(projects) : await GetStarted();
-
-	//Render Home Screen
-	$('#app').html(HTML);
+//Show Home
+function showHome() {
+	projects.length ? Home(projects) : GetStarted();
 }
 
 //Disable Zoom Factor

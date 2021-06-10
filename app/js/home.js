@@ -1,5 +1,7 @@
 //Modules
 const open = require('open');
+const sortable = require('sortablejs');
+let Sortable;
 
 //Render Home Screen
 async function Home() {
@@ -29,8 +31,28 @@ async function Home() {
 		let projectName = projects.length > 1 ? 'Projects' : 'Project';
 		html += '<footer><a href="#" class="addProject" draggable="false">New Project</a><span>' + projects.length + ' ' + projectName + '</span></footer>';
 
+		//Render Home Screen
+		$('#app').html(html);
+
+		//Sort projects
+		Sortable = sortable.create($('.projects')[0], {
+			animation: 250,
+			direction: 'vertical',
+			onEnd: async function (e) {
+				const movedItem = projects.filter((item, index) => index === e.oldIndex);
+				const remainingItems = projects.filter((item, index) => index !== e.oldIndex);
+				const reorderedItems = [...remainingItems.slice(0, e.newIndex), movedItem[0], ...remainingItems.slice(e.newIndex)];
+				projects = reorderedItems;
+				projects.map((project, i) => (project.i = i));
+				await DB.set('projects', projects);
+
+				//Refresh
+				Home(projects);
+			},
+		});
+
 		//Resolve
-		r(html);
+		r();
 	});
 }
 
@@ -108,11 +130,22 @@ $('body').on('click', '.addProject', async () => {
 
 //Search Projects
 $('body').on('input', '.projects-search input', () => {
+	//Scroll top
+	$(window).scrollTop(0);
+
+	//Disable sort
+	Sortable.option('disabled', true);
+
 	//Search term
 	const term = $('.projects-search input').val().toLowerCase();
 
 	//Show Reset search icon
-	if (term.length === 0) $('.projects-search-reset').addClass('hidden');
+	if (term.length === 0) {
+		$('.projects-search-reset').addClass('hidden');
+
+		//Enble sort
+		Sortable.option('disabled', false);
+	}
 	if (term.length > 0) $('.projects-search-reset').removeClass('hidden');
 
 	//Get results
@@ -129,6 +162,9 @@ $('body').on('click', '.projects-search-reset', () => {
 
 	//Hide button
 	$('.projects-search-reset').addClass('hidden');
+
+	//Enble sort
+	Sortable.option('disabled', false);
 });
 
 //Export

@@ -4,6 +4,7 @@ let lastenter;
 // //On Drag Enter
 $(document).on('dragenter', (e) => {
 	e.preventDefault();
+	if (e.originalEvent.dataTransfer.effectAllowed === 'move') return; //Fix sortable
 	lastenter = e.target;
 	$('.drag').show();
 });

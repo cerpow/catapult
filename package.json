@@ -18,7 +18,8 @@
 		"electron-store": "^8.0.0",
 		"extract-file-icon": "^0.3.2",
 		"jquery": "^3.5.1",
-		"open": "^8.2.0"
+		"open": "^8.2.0",
+		"sortablejs": "^1.13.0"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.7"

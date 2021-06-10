@@ -121,10 +121,7 @@ async function saveProject(lastOpenIn) {
 	await DB.set('lastApplication', lastOpenIn);
 
 	//Home Screen
-	let HTML = await Home(projects);
-
-	//Render Home Screen
-	$('#app').html(HTML);
+	Home(projects);
 }
 
 //Get Project Details
