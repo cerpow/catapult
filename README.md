@@ -27,9 +27,10 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
   <a href="#contribute">Contibute</a> •
-  <a href="https://github.com/cerpow/catapult/releases">Download</a> •
-  <a href="#license">License</a>
+  <a href="#license">License</a> •
+  <a href="https://github.com/cerpow/catapult/releases">Download</a>
 </p>
+
 
 
 
