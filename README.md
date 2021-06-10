@@ -72,8 +72,8 @@ Catapult uses the following open source packages:
 ```
 git clone https://github.com/cerpow/catapult.git
 cd catapult
-npm install
-npm start
+yarn //or npm install
+yarn dev //or npm run dev
 ```
 
 
