@@ -1,5 +1,5 @@
 //Modules
-const { app, BrowserWindow, Tray } = require('electron');
+const { app, BrowserWindow, Tray, powerMonitor } = require('electron');
 const Store = require('electron-store').initRenderer();
 const path = require('path');
 require('@electron/remote/main').initialize();

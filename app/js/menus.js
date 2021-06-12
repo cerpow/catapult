@@ -9,6 +9,12 @@ const autoLauncher = new AutoLaunch({ name: 'Catapult' });
 const theme = DB.get('theme');
 const settingsMenu = Menu.buildFromTemplate([
 	{
+		label: 'Catapult v' + remote.app.getVersion(),
+		type: 'normal',
+		enabled: false,
+	},
+	{ type: 'separator' },
+	{
 		label: 'Delete all projects',
 		type: 'normal',
 		click() {
@@ -72,6 +78,13 @@ const settingsMenu = Menu.buildFromTemplate([
 		],
 	},
 	{ type: 'separator' },
+	{
+		label: 'Check for updates',
+		type: 'normal',
+		click() {
+			checkForUpdates(true);
+		},
+	},
 	{
 		label: 'Buy me a coffee',
 		type: 'normal',

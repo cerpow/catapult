@@ -14,6 +14,7 @@ const Menus = require('./js/menus.js');
 const getIcon = require('./js/getIcon.js');
 const fs = require('fs');
 const path = require('path');
+const checkForUpdates = require('./js/updates');
 
 //Set Dark Mode
 remote.nativeTheme.themeSource = DB.get('theme');
