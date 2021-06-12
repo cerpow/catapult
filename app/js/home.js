@@ -150,9 +150,10 @@ $('body').on('input', '.projects-search input', () => {
 
 	//Get results
 	let results = projects.filter((project) => project.title.toLowerCase().includes(term));
+	console.log(results.length);
 
 	//Render html
-	$('.projects').html(renderProjects(results));
+	results.length ? $('.projects').html(renderProjects(results)) : $('.projects').html('<p class="no-results">No results found...</p>');
 });
 
 //Reset search
