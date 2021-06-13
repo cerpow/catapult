@@ -84,7 +84,15 @@ Click and drag any projects to rearrange its position.
 
 
 
-**Use Finder option, open same app, design changes and more!**
+**Launch app only**
+
+```
+If you select to open an app with the same app, Catapult will only launch the app.
+```
+
+
+
+ Other: **Use Finder option, design changes and more!**
 
 
 
