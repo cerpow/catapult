@@ -1,10 +1,6 @@
 //Modules
 const { Menu, nativeTheme } = remote;
 
-//Auto Launch
-const AutoLaunch = require('auto-launch');
-const autoLauncher = new AutoLaunch({ name: 'Catapult' });
-
 //Create Settings Menu
 const theme = DB.get('theme');
 const settingsMenu = Menu.buildFromTemplate([
@@ -29,19 +25,25 @@ const settingsMenu = Menu.buildFromTemplate([
 	{
 		label: 'Launch at login',
 		type: 'checkbox',
-		checked: DB.get('launchAtLogin'),
+		checked: DB.get('openAtLogin'),
 		click(e) {
-			// Launch At Login
-			autoLauncher
-				.isEnabled()
-				.then(function (isEnabled) {
-					let launchApp = isEnabled ? autoLauncher.disable() : autoLauncher.enable();
-					DB.set('launchAtLogin', !isEnabled);
-				})
-				.catch(function (err) {
-					alert('Please allow Accesibility Access in System Preferences');
-					e.checked = DB.get('launchAtLogin');
-				});
+			try {
+				//Get app settings
+				let { openAtLogin } = remote.app.getLoginItemSettings();
+
+				//Set open at login setting
+				remote.app.setLoginItemSettings({ openAtLogin: !openAtLogin });
+
+				//Save to db
+				DB.set('openAtLogin', !openAtLogin);
+
+				//Update checkbox
+				e.checked = !openAtLogin;
+			} catch (err) {
+				console.log(err);
+				alert('Please allow access in System Preferences > Security & Privacy > Accessibility');
+				e.checked = DB.get('openAtLogin');
+			}
 		},
 	},
 	{

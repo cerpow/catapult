@@ -1,6 +1,6 @@
 //Settings DB
 const Store = require('electron-store');
-const DB = new Store({ defaults: { launchAtLogin: false, lastApplication: 'Finder', projects: [], theme: 'system' } });
+const DB = new Store({ defaults: { openAtLogin: false, lastApplication: 'Finder', projects: [], theme: 'system' } });
 
 //Modules
 const remote = require('@electron/remote');
