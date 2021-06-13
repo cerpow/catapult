@@ -39,7 +39,7 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
 
 ### About
 
-Catapult is a simple macOS menu-app based that helps you open your projects more easily. Drag and drop any folder or file and select which app you want to open it with. A new project is created and you can access it quickly in the top menu by clicking on it.
+Catapult is a simple macOS menu-app that helps you open your projects more easily. Drag and drop any folder or file and select which app you want to open it with. A new project is created and you can access it quickly in the top menu by clicking on it.
 
 
 
