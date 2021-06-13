@@ -41,7 +41,7 @@ const settingsMenu = Menu.buildFromTemplate([
 				e.checked = !openAtLogin;
 			} catch (err) {
 				console.log(err);
-				alert('Please allow access in System Preferences > Security & Privacy > Accessibility');
+				alert(err);
 				e.checked = DB.get('openAtLogin');
 			}
 		},
