@@ -24,12 +24,15 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
 <p>
    <a href="#about">About</a> •
   <a href="#how-to-use">How To Use</a> •
+  <a href="#what's-new">What's New</a> •
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
   <a href="#contribute">Contibute</a> •
   <a href="#license">License</a> •
   <a href="https://github.com/cerpow/catapult/releases">Download</a>
 </p>
+
+
 
 
 
@@ -47,6 +50,39 @@ Catapult is a simple macOS menu-app based that helps you open your projects more
 3. Select "Open In" Application
 4. Save project
 5. Click on project to open in specified application
+
+
+
+### What's new
+
+**Dark/Light mode**
+
+You can now set your preferred color theme. Options: Light / Dark / System
+
+```
+Set theme via Settings > Theme
+```
+![Mockup - Theme](app/assets/_data/Mockup - Theme.jpg)
+
+
+
+**Search Projects**
+
+Search your projects for quick filter and access
+
+![Mockup - Search](app/assets/_data/Mockup - Search.jpg)
+
+
+
+**Rearrange Projects Order** 
+
+Click and drag any projects to rearrange its position.
+
+![Mockup - Rearrange](app/assets/_data/Mockup - Rearrange.jpg)
+
+
+
+**Use finder option, open same app, design changes and more!**
 
 
 
