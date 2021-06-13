@@ -117,6 +117,8 @@ Catapult uses the following open source packages:
 
 ### Contribute
 
+Please send any feedback or suggestions via Issues or at cerpow@gmail.com
+
 Using yarn as package manager (https://yarnpkg.com)
 
 ```
