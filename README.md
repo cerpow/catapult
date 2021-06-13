@@ -69,7 +69,7 @@ Set theme via Settings > Theme
 
 **Search Projects**
 
-Search your projects for quick filter and access
+Search your projects for quick access.
 
 <img src="app/assets/_data/Mockup - Search.jpg" alt="Catapult Search" >
 
