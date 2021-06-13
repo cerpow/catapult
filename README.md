@@ -62,7 +62,8 @@ You can now set your preferred color theme. Options: Light / Dark / System
 ```
 Set theme via Settings > Theme
 ```
-![Mockup - Theme](app/assets/_data/Mockup - Theme.jpg)
+<img src="app/assets/_data/Mockup - Theme.jpg" alt="Catapult Themes" >
+
 
 
 
@@ -70,7 +71,7 @@ Set theme via Settings > Theme
 
 Search your projects for quick filter and access
 
-![Mockup - Search](app/assets/_data/Mockup - Search.jpg)
+<img src="app/assets/_data/Mockup - Search.jpg" alt="Catapult Search" >
 
 
 
@@ -78,11 +79,11 @@ Search your projects for quick filter and access
 
 Click and drag any projects to rearrange its position.
 
-![Mockup - Rearrange](app/assets/_data/Mockup - Rearrange.jpg)
+<img src="app/assets/_data/Mockup - Rearrange.jpg" alt="Catapult Rearrange" >
 
 
 
-**Use finder option, open same app, design changes and more!**
+**Use Finder option, open same app, design changes and more!**
 
 
 
