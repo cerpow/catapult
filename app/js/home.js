@@ -84,7 +84,7 @@ $('body').on('click', '.project', async (e) => {
 	let openIn = project.attr('openIn');
 
 	//If file doesn't exist
-	if (!fs.existsSync(path)) return alert('File does not exist');
+	if (!fs.existsSync(path)) return alert('File or folder was removed.');
 
 	//Open folder or show file if Finder
 	if (openIn == 'Finder') {
@@ -99,9 +99,20 @@ $('body').on('click', '.project', async (e) => {
 		if (openIn == 'Finder' && !isFolder) return shell.showItemInFolder(path);
 	}
 
+	//Open app only
+	if (path.split('.').pop() == 'app' && path.split('/').pop().split('.').slice(0, -1).join('.') == openIn) return openApp(path);
+
 	//Open Project
 	open(path, { app: { name: openIn } });
 });
+
+//Open app only
+const { exec } = require('child_process');
+function openApp(path) {
+	exec('open ' + path.replaceAll(' ', '\\ '), (error) => {
+		if (error) alert(error.message);
+	});
+}
 
 //New Project Dialog
 $('body').on('click', '.addProject', async () => {
@@ -150,7 +161,6 @@ $('body').on('input', '.projects-search input', () => {
 
 	//Get results
 	let results = projects.filter((project) => project.title.toLowerCase().includes(term));
-	console.log(results.length);
 
 	//Render html
 	results.length ? $('.projects').html(renderProjects(results)) : $('.projects').html('<p class="no-results">No results found...</p>');
