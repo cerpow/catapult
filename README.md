@@ -24,13 +24,14 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
 <p>
    <a href="#about">About</a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#what's-new">What's New</a> •
+  <a href="#what-is-new">What is new</a> •
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
   <a href="#contribute">Contibute</a> •
   <a href="#license">License</a> •
   <a href="https://github.com/cerpow/catapult/releases">Download</a>
 </p>
+
 
 
 
@@ -53,7 +54,7 @@ Catapult is a simple macOS menu-app that helps you open your projects more easil
 
 
 
-### What's new
+### What is new
 
 **Dark/Light mode**
 
