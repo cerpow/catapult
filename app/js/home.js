@@ -160,7 +160,7 @@ $('body').on('input', '.projects-search input', () => {
 	if (term.length > 0) $('.projects-search-reset').removeClass('hidden');
 
 	//Get results
-	let results = projects.filter((project) => project.title.toLowerCase().includes(term));
+	let results = projects.filter((project) => (project.title + ' ' + project.openIn).toLowerCase().includes(term));
 
 	//Render html
 	results.length ? $('.projects').html(renderProjects(results)) : $('.projects').html('<p class="no-results">No results found...</p>');
