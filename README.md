@@ -78,7 +78,7 @@ Search your projects for quick access.
 
 **Rearrange Projects Order** 
 
-Click and drag any projects to rearrange its position.
+Click and drag any project to rearrange its position.
 
 <img src="app/assets/_data/Mockup - Rearrange.jpg" alt="Catapult Rearrange" >
 
