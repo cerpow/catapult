@@ -60,8 +60,7 @@ Set theme via Settings > Theme
 
 
 
-
-**Search Projects**
+**Search projects**
 
 Search your projects for quick access.
 
@@ -69,7 +68,7 @@ Search your projects for quick access.
 
 
 
-**Rearrange Projects Order** 
+**Rearrange projects order** 
 
 Click and drag any project to rearrange its position.
 
