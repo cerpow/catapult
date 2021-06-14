@@ -17,10 +17,6 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
 	<img src="https://img.shields.io/github/stars/cerpow/catapult?style=social">
 </a>
 </p>
-
-
-
-
 <p>
    <a href="#about">About</a> •
   <a href="#how-to-use">How To Use</a> •
@@ -31,12 +27,6 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
   <a href="#license">License</a> •
   <a href="https://github.com/cerpow/catapult/releases">Download</a>
 </p>
-
-
-
-
-
-
 
 ### About
 
@@ -52,7 +42,9 @@ Catapult is a simple macOS menu-app that helps you open your projects more easil
 4. Save project
 5. Click on project to open in specified application
 
+Note: This app is not signed yet, to open the app, Right click > Open 
 
+<a href="https://support.apple.com/en-gb/guide/mac-help/mh40616/mac" target="_blank">Learn more</a>
 
 ### What is new
 

@@ -32,7 +32,8 @@ function showHome() {
 	projects.length ? Home(projects) : GetStarted();
 }
 
-//Disable Zoom Factor
+//Disable Zoom Factor + Quit
 document.onkeydown = function (e) {
-	if (e.metaKey && (e.keyCode === 187 || e.keyCode === 189)) return false;
+	if (e.metaKey && (e.key === '=' || e.key === '-')) return false; //Cmd + -
+	if (e.metaKey && e.key === 'q') remote.app.exit(); //Quit on Cmd+Q
 };
