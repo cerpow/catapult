@@ -19,7 +19,7 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
 </p>
 <p>
    <a href="#about">About</a> •
-  <a href="#how-to-use">How To Use</a> •
+  <a href="#how-to-use">How to use</a> •
   <a href="#what-is-new">What is new</a> •
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
@@ -28,13 +28,14 @@ A project launcher app built on top of <a href="http://electron.atom.io" target=
   <a href="https://github.com/cerpow/catapult/releases">Download</a>
 </p>
 
+
 ### About
 
 Catapult is a simple macOS menu-app that helps you open your projects more easily. Drag and drop any folder or file and select which app you want to open it with. A new project is created and you can access it quickly in the top menu by clicking on it.
 
 
 
-### How To Use
+### How to use
 
 1. [Download](https://github.com/cerpow/catapult/releases) and install Catapult app
 2. Drag and drop a folder or file into Catapult app or use "Open Browser" button
