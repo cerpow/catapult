@@ -1,5 +1,5 @@
 //Modules
-const { app, BrowserWindow, Tray } = require('electron');
+const { app, BrowserWindow, Tray, screen } = require('electron');
 const Store = require('electron-store').initRenderer();
 const path = require('path');
 require('@electron/remote/main').initialize();
@@ -45,6 +45,8 @@ function createBrowser() {
 	//Hide Browser on blur
 	mb.on('blur', () => mb.hide());
 
+	mb.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+
 	//Open Dev Tools
 	if (process.env.NODE_ENV) mb.webContents.openDevTools();
 }
@@ -69,15 +71,28 @@ function createTray() {
 
 //Show/Hide Browser
 function showHide(e, isDrag) {
-	//Show Browser
-	if (isDrag || (!mb.isVisible() && !e.shiftKey && !e.ctrlKey && !e.metaKey)) {
-		mb.setPosition(Math.round(tray.getBounds().x + 18 - mb.getBounds().width / 2), 0);
-		mb.show();
+	//Get browser position
+	const { x: winX, y: winY } = mb.getBounds();
+	const activeDisplay = screen.getDisplayNearestPoint({ x: winX, y: winY }).id;
 
-		//Hide Browser
-	} else {
-		mb.hide();
-	}
+	// Get mouse cursor absolute position
+	const { x: curX, y: curY } = screen.getCursorScreenPoint();
+	const currentDisplay = screen.getDisplayNearestPoint({ x: curX, y: curY }).id;
+
+	//Check if same screen
+	const isSameScreen = activeDisplay == currentDisplay;
+
+	//Update position
+	mb.setPosition(Math.round(tray.getBounds().x + 18 - mb.getBounds().width / 2), 0);
+
+	//Show app on new screen
+	if (!isSameScreen) return mb.show();
+
+	//Show app
+	if (isDrag || (!mb.isVisible() && !e.shiftKey && !e.ctrlKey && !e.metaKey)) return mb.show();
+
+	//Hide app
+	mb.hide();
 }
 
 //Hide Dock Icon
