@@ -152,7 +152,7 @@ $('body').on('click', '.addProject', async () => {
 //Search Projects
 $('body').on('input', '.projects-search input', () => {
 	//Scroll top
-	$(window).scrollTop(0);
+	window.scrollTo(0, 0);
 
 	//Disable sort
 	Sortable.option('disabled', true);

@@ -4,7 +4,7 @@ let lastenter;
 // //On Drag Enter
 $(document).on('dragenter', (e) => {
 	e.preventDefault();
-	if (e.originalEvent.dataTransfer.effectAllowed === 'move') return; //Fix sortable
+	if (e.dataTransfer.effectAllowed === 'move') return; //Fix sortable
 	lastenter = e.target;
 	$('.drag').show();
 });
@@ -21,7 +21,7 @@ $(document).on('dragleave', (e) => {
 //On Drop
 $(document).on('drop', async function (e) {
 	e.preventDefault();
-	let file = e.originalEvent.dataTransfer.files[0];
+	let file = e.dataTransfer.files[0];
 	if (!file) return;
 
 	//Is Folder

@@ -5,7 +5,7 @@ const DB = new Store({ defaults: { openAtLogin: false, lastApplication: 'Finder'
 //Modules
 const remote = require('@electron/remote');
 const { shell } = require('electron');
-const $ = require('jquery');
+const $ = require('cash-dom');
 const Home = require('./js/home.js');
 const GetStarted = require('./js/getstarted.js');
 const Details = require('./js/details.js');

@@ -1,15 +1,13 @@
 //Modules
 const compareVersions = require('compare-versions');
-const CronJob = require('cron').CronJob;
-const axios = require('axios');
+const axios = require('axios-slim');
 
 //Check for updates
 function checkForUpdates(force) {
-	axios
-		.get('https://api.github.com/repos/cerpow/catapult/releases')
-		.then(async function ({ data }) {
+	axios('https://api.github.com/repos/cerpow/catapult/releases')
+		.then(async function ({ body }) {
 			let currentVer = remote.app.getVersion();
-			let updateVer = data[0].tag_name.replace('v', '');
+			let updateVer = body[0].tag_name.replace('v', '');
 			let hasUpdate = compareVersions.compare(currentVer, updateVer, '<');
 			let skipVersion = (await DB.get('skipVersion')) == updateVer;
 
@@ -25,7 +23,7 @@ function checkForUpdates(force) {
 				]);
 
 				//Download latest version
-				if (response === 0) shell.openExternal(data[0].assets[0].browser_download_url);
+				if (response === 0) shell.openExternal(body[0].assets[0].browser_download_url);
 
 				//Skip this version
 				if (response === 1) await DB.set('skipVersion', updateVer);
@@ -35,7 +33,7 @@ function checkForUpdates(force) {
 			}
 
 			//Up to date
-			if (force) showMessage('You’re up to date!', 'Catapult v' + updateVer + ' is currently the newest version available.', ['OK']);
+			if (force) showMessage('You’re up to date!', 'Catapult v' + currentVer + ' is currently the newest version available.', ['OK']);
 
 			//Log
 			console.log('Checked for updates');
@@ -45,6 +43,7 @@ function checkForUpdates(force) {
 			console.log(error);
 		});
 }
+checkForUpdates();
 
 //Show Message
 function showMessage(message, detail, buttons) {
@@ -55,14 +54,6 @@ function showMessage(message, detail, buttons) {
 		buttons: buttons,
 	});
 }
-
-//Check for updates
-new CronJob({
-	cronTime: '0 13 * * 1', //Every week on Monday
-	onTick: () => checkForUpdates(),
-	start: true,
-	runOnInit: true,
-});
 
 //On sleep
 remote.powerMonitor.on('resume', () => {

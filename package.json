@@ -1,6 +1,6 @@
 {
 	"name": "catapult",
-	"version": "2.0.1",
+	"version": "2.1.0",
 	"description": "Access your workspace on the fly.",
 	"main": "main.js",
 	"scripts": {
@@ -13,12 +13,11 @@
 	"license": "MIT",
 	"dependencies": {
 		"@electron/remote": "^1.0.4",
-		"axios": "^0.21.1",
+		"axios-slim": "^1.0.1",
+		"cash-dom": "^8.1.0",
 		"compare-versions": "^3.6.0",
-		"cron": "^1.8.2",
 		"electron-store": "^8.0.0",
 		"extract-file-icon": "^0.3.2",
-		"jquery": "^3.5.1",
 		"open": "^8.2.0",
 		"sortablejs": "^1.13.0"
 	},
