@@ -189,8 +189,8 @@ $('body').on('click', '.projects-search-reset', () => {
 });
 
 //Make search field focused on open and clear on close
-$(window).on('focus', () => $('.projects-search input').trigger('focus'));
-$(window).on('blur', () => $('.projects-search input').val('').trigger('input'));
+window.addEventListener('focus', () => $('.projects-search input').trigger('focus'));
+window.addEventListener('blur', () => $('.projects-search input').val('').trigger('input'));
 
 //Export
 module.exports = Home;
