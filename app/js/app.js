@@ -34,6 +34,13 @@ function showHome() {
 
 //Disable Zoom Factor + Quit
 document.onkeydown = function (e) {
+	if (e.key == 'Enter') $('.project').eq(0).trigger('click'); // Open first project
+	if (e.metaKey && !isNaN(e.key) && e.key != 0)
+		// Open cmd + project
+		$('.project')
+			.eq(e.key - 1)
+			.trigger('click');
+
 	if (e.metaKey && (e.key === '=' || e.key === '-')) return false; //Cmd + -
 	if (e.metaKey && e.key === 'q') remote.app.exit(); //Quit on Cmd+Q
 };

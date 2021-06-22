@@ -63,16 +63,24 @@ function renderProjects(projects) {
 	let html = '';
 
 	//Loop Projects
-	projects.forEach((project) => {
+	projects.forEach((project, i) => {
 		html += '<div class="project" openIn="' + project.openIn + '" path="' + project.path + '" i="' + project.i + '">';
 		html += '<img draggable="false" src="' + project.image + '">';
 		html += '<div class="project-info"><h1>' + project.title + '</h1>';
 		html += '<p>' + project.openIn + '</p></div>';
+		html += '<div class="project-shortcut">' + keyboardShortcut(i) + '</div>';
 		html += '</div>';
 	});
 
 	//Return
 	return html;
+}
+
+//Create keyboard shortcut
+function keyboardShortcut(i) {
+	if (i == 0) return '↩';
+	if (i < 9) return '⌘' + (i + 1);
+	return '';
 }
 
 //Open Projects
