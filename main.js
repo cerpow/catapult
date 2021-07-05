@@ -44,7 +44,8 @@ function createBrowser() {
 
 	//Hide Browser on blur
 	mb.on('blur', () => {
-		mb.hide();
+		mb.webContents.send('clearSearch', true);
+		setTimeout(() => mb.hide(), 15);
 		registerEscapeKey();
 	});
 
@@ -88,19 +89,14 @@ function showHide(e, isDrag) {
 	//Update position
 	mb.setPosition(Math.round(tray.getBounds().x + 18 - mb.getBounds().width / 2), 0);
 
-	//Show app on new screen
-	if (!isSameScreen) {
-		mb.show();
-		return registerEscapeKey();
-	}
-
-	//Show app
-	if (isDrag || (!mb.isVisible() && !e?.shiftKey && !e?.ctrlKey && !e?.metaKey)) {
+	//Show app + diff screen
+	if (!isSameScreen || isDrag || (!mb.isVisible() && !e?.shiftKey && !e?.ctrlKey && !e?.metaKey)) {
 		mb.show();
 		return registerEscapeKey();
 	}
 
 	//Hide app
+	mb.webContents.send('clearSearch', true);
 	mb.hide();
 	registerEscapeKey();
 }

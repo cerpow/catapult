@@ -85,9 +85,6 @@ function keyboardShortcut(i) {
 
 //Open Projects
 $('body').on('click', '.project', async (e) => {
-	//Clear Search
-	$('.projects-search input').val('').trigger('input');
-
 	//Get Project Info
 	let project = $(e.currentTarget);
 	let path = project.attr('path');
@@ -190,7 +187,10 @@ $('body').on('click', '.projects-search-reset', () => {
 
 //Make search field focused on open and clear on close
 window.addEventListener('focus', () => $('.projects-search input').trigger('focus'));
-window.addEventListener('blur', () => $('.projects-search input').val('').trigger('input'));
+// window.addEventListener('blur', () => $('.projects-search input').val('').trigger('input'));
+
+//Clear search from main
+ipcRenderer.on('clearSearch', () => $('.projects-search input').val('').trigger('input'));
 
 //Export
 module.exports = Home;
