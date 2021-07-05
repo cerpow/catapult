@@ -43,7 +43,7 @@ function checkForUpdates(force) {
 			console.log(error);
 		});
 }
-checkForUpdates();
+if (!process.env.NODE_ENV) checkForUpdates();
 
 //Show Message
 function showMessage(message, detail, buttons) {

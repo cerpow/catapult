@@ -1,5 +1,5 @@
 //Modules
-const { app, BrowserWindow, Tray, screen } = require('electron');
+const { app, BrowserWindow, Tray, screen, globalShortcut, ipcMain } = require('electron');
 const Store = require('electron-store').initRenderer();
 const path = require('path');
 require('@electron/remote/main').initialize();
@@ -43,7 +43,10 @@ function createBrowser() {
 	mb.once('ready-to-show', () => (mb.webContents.zoomFactor = 1));
 
 	//Hide Browser on blur
-	mb.on('blur', () => mb.hide());
+	mb.on('blur', () => {
+		mb.hide();
+		registerEscapeKey();
+	});
 
 	mb.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
 
@@ -86,14 +89,32 @@ function showHide(e, isDrag) {
 	mb.setPosition(Math.round(tray.getBounds().x + 18 - mb.getBounds().width / 2), 0);
 
 	//Show app on new screen
-	if (!isSameScreen) return mb.show();
+	if (!isSameScreen) {
+		mb.show();
+		return registerEscapeKey();
+	}
 
 	//Show app
-	if (isDrag || (!mb.isVisible() && !e.shiftKey && !e.ctrlKey && !e.metaKey)) return mb.show();
+	if (isDrag || (!mb.isVisible() && !e?.shiftKey && !e?.ctrlKey && !e?.metaKey)) {
+		mb.show();
+		return registerEscapeKey();
+	}
 
 	//Hide app
 	mb.hide();
+	registerEscapeKey();
 }
+
+//Register Escape Shortcut
+function registerEscapeKey() {
+	if (!mb.isVisible()) return globalShortcut.unregister('Escape');
+	globalShortcut.register('Escape', () => showHide());
+}
+
+//Register show shortcut
+ipcMain.handle('setShortcut', (e, key) => {
+	globalShortcut.register(key, () => showHide());
+});
 
 //Hide Dock Icon
 app.dock.hide();

@@ -1,10 +1,10 @@
 //Settings DB
 const Store = require('electron-store');
-const DB = new Store({ defaults: { openAtLogin: false, lastApplication: 'Finder', projects: [], theme: 'system' } });
+const DB = new Store({ defaults: { openAtLogin: false, lastApplication: 'Finder', projects: [], theme: 'system', shortcut: 'Option+Space' } });
 
 //Modules
 const remote = require('@electron/remote');
-const { shell } = require('electron');
+const { shell, ipcRenderer } = require('electron');
 const $ = require('cash-dom');
 const Home = require('./js/home.js');
 const GetStarted = require('./js/getstarted.js');
@@ -44,3 +44,14 @@ document.onkeydown = function (e) {
 	if (e.metaKey && (e.key === '=' || e.key === '-')) return false; //Cmd + -
 	if (e.metaKey && e.key === 'q') remote.app.exit(); //Quit on Cmd+Q
 };
+
+//Set show shortcut
+async function setShortcut() {
+	try {
+		await ipcRenderer.invoke('setShortcut', DB.get('shortcut'));
+	} catch (e) {
+		DB.set('shortcut', 'Option+Space');
+		await ipcRenderer.invoke('setShortcut', 'Option+Space');
+	}
+}
+setShortcut();

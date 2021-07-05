@@ -47,6 +47,10 @@ const settingsMenu = Menu.buildFromTemplate([
 		},
 	},
 	{
+		label: 'Set shortcut...',
+		type: 'normal',
+	},
+	{
 		label: 'Theme',
 		type: 'submenu',
 		submenu: [
