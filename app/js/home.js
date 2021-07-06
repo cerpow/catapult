@@ -163,6 +163,7 @@ $('body').on('input', '.projects-search input', () => {
 
 		//Enble sort
 		Sortable.option('disabled', false);
+		return $('.projects').html(renderProjects(projects));
 	}
 	if (term.length > 0) $('.projects-search-reset').removeClass('hidden');
 
@@ -187,9 +188,7 @@ $('body').on('click', '.projects-search-reset', () => {
 
 //Make search field focused on open and clear on close
 window.addEventListener('focus', () => $('.projects-search input').trigger('focus'));
-
-//Clear search from main
-ipcRenderer.on('clearSearch', () => $('.projects-search input').val('').trigger('input'));
+window.addEventListener('blur', () => $('.projects-search input').val('').trigger('input'));
 
 //Export
 module.exports = Home;

@@ -33,6 +33,7 @@ function createBrowser() {
 			contextIsolation: false,
 			nodeIntegration: true,
 			enableRemoteModule: true,
+			backgroundThrottling: false,
 		},
 	});
 
@@ -92,9 +93,8 @@ function showHide(e, isDrag, hide) {
 	}
 
 	//Hide app
-	mb.webContents.send('clearSearch', true);
 	globalShortcut.unregister('Escape');
-	setTimeout(() => mb.hide(), 10);
+	mb.hide();
 }
 
 //Register show shortcut
