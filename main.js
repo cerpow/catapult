@@ -71,20 +71,25 @@ function createTray() {
 }
 
 //Show/Hide Browser
-function showHide(e, isDrag, hide) {
+function showHide(e, isDrag, hide, shortcut) {
 	//Get browser position
 	const { x: winX, y: winY } = mb.getBounds();
-	const activeDisplay = screen.getDisplayNearestPoint({ x: winX, y: winY }).id;
+	const activeDisplay = screen.getDisplayNearestPoint({ x: winX, y: winY });
 
 	// Get mouse cursor absolute position
 	const { x: curX, y: curY } = screen.getCursorScreenPoint();
-	const currentDisplay = screen.getDisplayNearestPoint({ x: curX, y: curY }).id;
+	const currentDisplay = screen.getDisplayNearestPoint({ x: curX, y: curY });
 
 	//Check if same screen
-	const isSameScreen = activeDisplay == currentDisplay;
+	const isSameScreen = activeDisplay.id == currentDisplay.id;
 
 	//Update position
-	mb.setPosition(Math.round(tray.getBounds().x + 18 - mb.getBounds().width / 2), 0);
+	if (shortcut) {
+		let mbBounds = mb.getBounds();
+		mb.setPosition(activeDisplay.bounds.width / 2 - mbBounds.width / 2, activeDisplay.bounds.height / 2 - mbBounds.height / 2 - 150);
+	} else {
+		mb.setPosition(Math.round(tray.getBounds().x + 18 - mb.getBounds().width / 2), 0);
+	}
 
 	//Show app + diff screen
 	if (!hide && (!isSameScreen || isDrag || (!mb.isVisible() && !e?.shiftKey && !e?.ctrlKey && !e?.metaKey))) {
@@ -99,7 +104,7 @@ function showHide(e, isDrag, hide) {
 
 //Register show shortcut
 ipcMain.handle('setShortcut', (e, key) => {
-	globalShortcut.register(key, () => showHide());
+	globalShortcut.register(key, () => showHide(null, null, null, true));
 });
 
 //Hide Dock Icon
