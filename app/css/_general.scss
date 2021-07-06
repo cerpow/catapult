@@ -84,6 +84,15 @@ a {
 	position: relative;
 }
 
+.drag-window {
+	-webkit-app-region: drag;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 13px;
+	z-index: 9999;
+}
+
 //Drag Over
 .drag {
 	border: solid 2px var(--blue-color);
