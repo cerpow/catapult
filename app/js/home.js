@@ -176,7 +176,7 @@ $('body').on('input', '.projects-search input', () => {
 //Reset search
 $('body').on('click', '.projects-search-reset', () => {
 	//Clear Search
-	$('.projects-search input').val('').trigger('input');
+	$('.projects-search input').val('').trigger('input').trigger('focus');
 
 	//Hide button
 	$('.projects-search-reset').addClass('hidden');
@@ -187,7 +187,6 @@ $('body').on('click', '.projects-search-reset', () => {
 
 //Make search field focused on open and clear on close
 window.addEventListener('focus', () => $('.projects-search input').trigger('focus'));
-// window.addEventListener('blur', () => $('.projects-search input').val('').trigger('input'));
 
 //Clear search from main
 ipcRenderer.on('clearSearch', () => $('.projects-search input').val('').trigger('input'));

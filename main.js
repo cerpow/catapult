@@ -43,11 +43,7 @@ function createBrowser() {
 	mb.once('ready-to-show', () => (mb.webContents.zoomFactor = 1));
 
 	//Hide Browser on blur
-	mb.on('blur', () => {
-		mb.webContents.send('clearSearch', true);
-		setTimeout(() => mb.hide(), 15);
-		registerEscapeKey();
-	});
+	mb.on('blur', (e) => (mb.isVisible() ? showHide(e, null, true) : null));
 
 	mb.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
 
@@ -74,7 +70,7 @@ function createTray() {
 }
 
 //Show/Hide Browser
-function showHide(e, isDrag) {
+function showHide(e, isDrag, hide) {
 	//Get browser position
 	const { x: winX, y: winY } = mb.getBounds();
 	const activeDisplay = screen.getDisplayNearestPoint({ x: winX, y: winY }).id;
@@ -90,21 +86,15 @@ function showHide(e, isDrag) {
 	mb.setPosition(Math.round(tray.getBounds().x + 18 - mb.getBounds().width / 2), 0);
 
 	//Show app + diff screen
-	if (!isSameScreen || isDrag || (!mb.isVisible() && !e?.shiftKey && !e?.ctrlKey && !e?.metaKey)) {
+	if (!hide && (!isSameScreen || isDrag || (!mb.isVisible() && !e?.shiftKey && !e?.ctrlKey && !e?.metaKey))) {
 		mb.show();
-		return registerEscapeKey();
+		return globalShortcut.register('Escape', () => showHide());
 	}
 
 	//Hide app
 	mb.webContents.send('clearSearch', true);
-	mb.hide();
-	registerEscapeKey();
-}
-
-//Register Escape Shortcut
-function registerEscapeKey() {
-	if (!mb.isVisible()) return globalShortcut.unregister('Escape');
-	globalShortcut.register('Escape', () => showHide());
+	globalShortcut.unregister('Escape');
+	setTimeout(() => mb.hide(), 10);
 }
 
 //Register show shortcut
