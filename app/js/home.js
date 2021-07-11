@@ -64,7 +64,8 @@ function renderProjects(projects) {
 
 	//Loop Projects
 	projects.forEach((project, i) => {
-		html += '<div class="project" openIn="' + project.openIn + '" path="' + project.path + '" i="' + project.i + '">';
+		html += i == 0 ? '<div class="project hover"' : '<div class="project"';
+		html += ' openIn="' + project.openIn + '" path="' + project.path + '" i="' + project.i + '">';
 		html += '<img draggable="false" src="' + project.image + '">';
 		html += '<div class="project-info"><h1>' + project.title + '</h1>';
 		html += '<p>' + project.openIn + '</p></div>';
@@ -83,8 +84,16 @@ function keyboardShortcut(i) {
 	return '';
 }
 
+//Add hover class
+$(document).on('mouseover', '.project', (e) => {
+	let project = $(e.currentTarget);
+	if (project.hasClass('hover')) return;
+	$('.hover').removeClass('hover');
+	project.addClass('hover');
+});
+
 //Open Projects
-$('body').on('click', '.project', async (e) => {
+$(document).on('click', '.project', async (e) => {
 	//Get Project Info
 	let project = $(e.currentTarget);
 	let path = project.attr('path');
@@ -122,7 +131,7 @@ function openApp(path) {
 }
 
 //New Project Dialog
-$('body').on('click', '.addProject', async () => {
+$(document).on('click', '.addProject', async () => {
 	remote.dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'createDirectory'] }).then(async (result) => {
 		if (result.canceled) return;
 
@@ -147,7 +156,7 @@ $('body').on('click', '.addProject', async () => {
 });
 
 //Search Projects
-$('body').on('input', '.projects-search input', () => {
+$(document).on('input', '.projects-search input', () => {
 	//Scroll top
 	window.scrollTo(0, 0);
 
@@ -175,7 +184,7 @@ $('body').on('input', '.projects-search input', () => {
 });
 
 //Reset search
-$('body').on('click', '.projects-search-reset', () => {
+$(document).on('click', '.projects-search-reset', () => {
 	//Clear Search
 	$('.projects-search input').val('').trigger('input').trigger('focus');
 

@@ -252,7 +252,7 @@ input::placeholder {
   padding: 10px 14px;
 }
 
-.project:hover {
+.project:hover, .project.hover {
   background-color: var(--hover-bg-color);
 }
 
