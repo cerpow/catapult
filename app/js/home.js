@@ -49,7 +49,7 @@ async function Home() {
 				await DB.set('projects', projects);
 
 				//Refresh
-				Home(projects);
+				Home();
 			},
 		});
 
@@ -64,11 +64,12 @@ function renderProjects(projects) {
 
 	//Loop Projects
 	projects.forEach((project, i) => {
-		html += i == 0 ? '<div class="project hover"' : '<div class="project"';
+		html += i == 0 ? '<div class="project selected"' : '<div class="project"';
 		html += ' openIn="' + project.openIn + '" path="' + project.path + '" i="' + project.i + '">';
 		html += '<img draggable="false" src="' + project.image + '">';
 		html += '<div class="project-info"><h1>' + project.title + '</h1>';
 		html += '<p>' + project.openIn + '</p></div>';
+		html += '<div class="project-shortcut-enter">↩</div>';
 		html += '<div class="project-shortcut">' + keyboardShortcut(i) + '</div>';
 		html += '</div>';
 	});
@@ -79,17 +80,20 @@ function renderProjects(projects) {
 
 //Create keyboard shortcut
 function keyboardShortcut(i) {
-	if (i == 0) return '↩';
 	if (i < 9) return '⌘' + (i + 1);
 	return '';
 }
 
 //Add hover class
+// window.addEventListener('mousemove', (e) => {
+// 	console.log(e);
+// });
 $(document).on('mouseover', '.project', (e) => {
+	if ($('.sortable-chosen').length) return; //Stop if sortable
 	let project = $(e.currentTarget);
-	if (project.hasClass('hover')) return;
-	$('.hover').removeClass('hover');
-	project.addClass('hover');
+	if (project.hasClass('selected')) return;
+	$('.selected').removeClass('selected');
+	project.addClass('selected');
 });
 
 //Open Projects

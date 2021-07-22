@@ -11,9 +11,16 @@
 	align-items: center;
 	padding: 10px 14px;
 
-	&:hover,
-	&.hover {
+	&.selected {
 		background-color: var(--hover-bg-color);
+
+		.project-shortcut {
+			display: none;
+		}
+
+		.project-shortcut-enter {
+			display: block;
+		}
 	}
 
 	img {
@@ -22,8 +29,13 @@
 	}
 }
 
-.project-shortcut {
+.project-shortcut,
+.project-shortcut-enter {
 	text-align: right;
+}
+
+.project-shortcut-enter {
+	display: none;
 }
 
 .projects-search {

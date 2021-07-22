@@ -29,12 +29,12 @@ $(() => showHome());
 
 //Show Home
 function showHome() {
-	projects.length ? Home(projects) : GetStarted();
+	projects.length ? Home() : GetStarted();
 }
 
 //Disable Zoom Factor + Quit
 document.onkeydown = function (e) {
-	if (e.key == 'Enter') $('.project').eq(0).trigger('click'); // Open first project
+	if (e.key == 'Enter') $('.selected').trigger('click'); // Open selected project
 	if (e.metaKey && !isNaN(e.key) && e.key != 0)
 		// Open cmd + project
 		$('.project')

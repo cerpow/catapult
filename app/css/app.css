@@ -252,8 +252,16 @@ input::placeholder {
   padding: 10px 14px;
 }
 
-.project:hover, .project.hover {
+.project.selected {
   background-color: var(--hover-bg-color);
+}
+
+.project.selected .project-shortcut {
+  display: none;
+}
+
+.project.selected .project-shortcut-enter {
+  display: block;
 }
 
 .project img {
@@ -261,8 +269,13 @@ input::placeholder {
   margin-right: 14px;
 }
 
-.project-shortcut {
+.project-shortcut,
+.project-shortcut-enter {
   text-align: right;
+}
+
+.project-shortcut-enter {
+  display: none;
 }
 
 .projects-search {
