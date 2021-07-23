@@ -4,7 +4,7 @@ const sortable = require('sortablejs');
 let Sortable;
 
 //Render Home Screen
-async function Home() {
+async function Home(selectIndex) {
 	let html = '';
 	return new Promise((r) => {
 		//Settings Icon
@@ -24,7 +24,7 @@ async function Home() {
 		html += '<div class="projects">';
 
 		//Projects
-		html += renderProjects(projects);
+		html += renderProjects(projects, selectIndex);
 
 		//End Projects
 		html += '</div>';
@@ -49,7 +49,7 @@ async function Home() {
 				await DB.set('projects', projects);
 
 				//Refresh
-				Home();
+				Home(e.newIndex);
 			},
 		});
 
@@ -59,12 +59,12 @@ async function Home() {
 }
 
 //Render Projects
-function renderProjects(projects) {
+function renderProjects(projects, selectIndex) {
 	let html = '';
 
 	//Loop Projects
 	projects.forEach((project, i) => {
-		html += i == 0 ? '<div class="project selected"' : '<div class="project"';
+		html += i == (selectIndex || 0) ? '<div class="project selected"' : '<div class="project"';
 		html += ' openIn="' + project.openIn + '" path="' + project.path + '" i="' + project.i + '">';
 		html += '<img draggable="false" src="' + project.image + '">';
 		html += '<div class="project-info"><h1>' + project.title + '</h1>';
@@ -84,13 +84,11 @@ function keyboardShortcut(i) {
 	return '';
 }
 
-//Add hover class
-// window.addEventListener('mousemove', (e) => {
-// 	console.log(e);
-// });
-$(document).on('mouseover', '.project', (e) => {
-	if ($('.sortable-chosen').length) return; //Stop if sortable
-	let project = $(e.currentTarget);
+//Add selected class on mouse move
+$(document).on('mousemove', function (e) {
+	let elem = document.elementFromPoint(e.clientX, e.clientY);
+	let project = $(elem).closest('.project');
+	if (!project.length) return;
 	if (project.hasClass('selected')) return;
 	$('.selected').removeClass('selected');
 	project.addClass('selected');
@@ -160,7 +158,7 @@ $(document).on('click', '.addProject', async () => {
 });
 
 //Search Projects
-$(document).on('input', '.projects-search input', () => {
+$(document).on('input', '.projects-search input', (e) => {
 	//Scroll top
 	window.scrollTo(0, 0);
 
@@ -201,7 +199,10 @@ $(document).on('click', '.projects-search-reset', () => {
 
 //Make search field focused on open and clear on close
 window.addEventListener('focus', () => $('.projects-search input').trigger('focus'));
-window.addEventListener('blur', () => $('.projects-search input').val('').trigger('input'));
+window.addEventListener('blur', () => {
+	let searchInput = $('.projects-search input');
+	if (searchInput) searchInput.val('').trigger('input');
+});
 
 //Export
 module.exports = Home;
