@@ -43,6 +43,18 @@ document.onkeydown = function (e) {
 
 	if (e.metaKey && (e.key === '=' || e.key === '-')) return false; //Cmd + -
 	if (e.metaKey && e.key === 'q') remote.app.exit(); //Quit on Cmd+Q
+
+	//Navigate projects
+	if (e.key == 'ArrowUp' || e.key == 'ArrowDown') {
+		let selected = $('.selected');
+		let next;
+		if (e.key == 'ArrowUp') next = selected.prev('.project');
+		if (e.key == 'ArrowDown') next = selected.next('.project');
+		if (!next.length && e.key == 'ArrowUp') next = $('.project').last();
+		if (!next.length && e.key == 'ArrowDown') next = $('.project').first();
+		selected.removeClass('selected');
+		next.addClass('selected');
+	}
 };
 
 //Set show shortcut
