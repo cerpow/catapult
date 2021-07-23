@@ -12,7 +12,13 @@
 	padding: 10px 14px;
 
 	&.selected {
-		background-color: var(--hover-bg-color);
+		// background-color: var(--hover-bg-color);
+		background-color: rgba($blue, 0.15);
+		color: var(--secondary-font-color);
+
+		p {
+			color: var(--secondary-font-color-darker);
+		}
 
 		.project-shortcut {
 			display: none;

@@ -19,6 +19,7 @@
   --main-font-color: #7c7c8f;
   --main-font-color-hover: #585867;
   --secondary-font-color: #40404b;
+  --secondary-font-color-darker: #4c4c59;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +30,7 @@
     --main-font-color: #636375;
     --main-font-color-hover: #7c7c8f;
     --secondary-font-color: #eaeaed;
+    --secondary-font-color-darker: #c1c1ca;
   }
 }
 
@@ -253,7 +255,12 @@ input::placeholder {
 }
 
 .project.selected {
-  background-color: var(--hover-bg-color);
+  background-color: rgba(55, 134, 254, 0.15);
+  color: var(--secondary-font-color);
+}
+
+.project.selected p {
+  color: var(--secondary-font-color-darker);
 }
 
 .project.selected .project-shortcut {

@@ -24,6 +24,7 @@ $blue: #3786fe;
 	--main-font-color: #{lighten($black, 40)};
 	--main-font-color-hover: #{lighten($black, 25)};
 	--secondary-font-color: #{lighten($black, 15)};
+	--secondary-font-color-darker: #{lighten($black, 20)};
 }
 
 // Dark Theme
@@ -35,6 +36,7 @@ $blue: #3786fe;
 		--main-font-color: #{lighten($black, 30)};
 		--main-font-color-hover: #{lighten($black, 40)};
 		--secondary-font-color: #{lighten($black, 80)};
+		--secondary-font-color-darker: #{lighten($black, 65)};
 	}
 }
 
