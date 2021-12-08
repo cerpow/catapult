@@ -14,10 +14,12 @@
 //Colors
 $black: #1d1d22;
 $blue: #3786fe;
+$blue-highlight: rgba($blue, 0.15);
 
 // Light Theme
 :root {
 	--blue-color: #{$blue};
+	--blue-color-hightlight: #{$blue-highlight};
 	--main-bg-color: white;
 	--secondary-bg-color: #e7eefc;
 	--hover-bg-color: #edf0f8;

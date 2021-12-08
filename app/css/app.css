@@ -13,6 +13,7 @@
 
 :root {
   --blue-color: #3786fe;
+  --blue-color-hightlight: rgba(55, 134, 254, 0.15);
   --main-bg-color: white;
   --secondary-bg-color: #e7eefc;
   --hover-bg-color: #edf0f8;
@@ -255,7 +256,7 @@ input::placeholder {
 }
 
 .project.selected {
-  background-color: rgba(55, 134, 254, 0.15);
+  background-color: var(--blue-color-hightlight);
   color: var(--secondary-font-color);
 }
 
