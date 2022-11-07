@@ -14,7 +14,7 @@ const Menus = require('./js/menus.js');
 const getIcon = require('./js/getIcon.js');
 const fs = require('fs');
 const path = require('path');
-// const checkForUpdates = require('./app/js/updates');
+const checkForUpdates = require('./js/updates');
 
 //Get Projects + Set ID
 let contextProject = null;

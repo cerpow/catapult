@@ -1,5 +1,5 @@
 //Modules
-const { app, Tray, screen, globalShortcut, ipcMain, BrowserWindow, nativeTheme } = require('electron');
+const { app, Tray, screen, globalShortcut, ipcMain, BrowserWindow } = require('electron');
 const Store = require('electron-store').initRenderer();
 const path = require('path');
 const remote = require('@electron/remote/main');

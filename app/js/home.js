@@ -144,7 +144,7 @@ $(document).on('click', '.addProject', async () => {
 		let openIn = 'Finder';
 
 		//Get Icon
-		let icon = isFolder ? './app/assets/icons/ico_folder.svg' : await getIcon(path);
+		let icon = isFolder ? './assets/icons/ico_folder.svg' : await getIcon(path);
 
 		//Show Details Screen
 		let HTML = await Details(title, path, icon, openIn, 'New');
