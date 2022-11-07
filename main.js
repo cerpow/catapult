@@ -1,8 +1,9 @@
 //Modules
-const { app, BrowserWindow, Tray, screen, globalShortcut, ipcMain } = require('electron');
+const { app, Tray, screen, globalShortcut, ipcMain, BrowserWindow, nativeTheme } = require('electron');
 const Store = require('electron-store').initRenderer();
 const path = require('path');
-require('@electron/remote/main').initialize();
+const remote = require('@electron/remote/main');
+remote.initialize();
 
 //Vars
 let tray = null;
@@ -38,7 +39,7 @@ function createBrowser() {
 	});
 
 	//Load Index
-	mb.loadURL(`file://${__dirname}/app/index.html`);
+	mb.loadFile('./app/index.html');
 
 	//Reset Zoom Factor
 	mb.once('ready-to-show', () => (mb.webContents.zoomFactor = 1));
@@ -47,6 +48,9 @@ function createBrowser() {
 	mb.on('blur', (e) => (mb.isVisible() ? showHide(e, null, true) : null));
 
 	mb.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+
+	//Enable remote
+	remote.enable(mb.webContents);
 
 	//Open Dev Tools
 	if (process.env.NODE_ENV) mb.webContents.openDevTools();

@@ -14,10 +14,7 @@ const Menus = require('./js/menus.js');
 const getIcon = require('./js/getIcon.js');
 const fs = require('fs');
 const path = require('path');
-const checkForUpdates = require('./js/updates');
-
-//Set Dark Mode
-remote.nativeTheme.themeSource = DB.get('theme');
+// const checkForUpdates = require('./app/js/updates');
 
 //Get Projects + Set ID
 let contextProject = null;
@@ -29,6 +26,7 @@ $(() => showHome());
 
 //Show Home
 function showHome() {
+	console.log(projects);
 	projects.length ? Home() : GetStarted();
 }
 

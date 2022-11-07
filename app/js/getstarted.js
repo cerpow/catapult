@@ -8,7 +8,7 @@ async function GetStarted() {
 
 		//Get Started Screen
 		html += '<div class="get-started">';
-		html += '<div class="get-started-image"><img draggable="false" class="ico-flower" src="./assets/icons/ico_flower.svg"><img draggable="false" src="./assets/icons/ico_file.svg"></div>';
+		html += '<div class="get-started-image"><img draggable="false" class="ico-flower" src="./app/assets/icons/ico_flower.svg"><img draggable="false" src="./app/assets/icons/ico_file.svg"></div>';
 		html += '<p>To get started, drag and drop a folder or a file here</p></div>';
 		html += '<footer><a href="#" class="addProject">New Project</a></footer>';
 

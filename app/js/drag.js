@@ -32,7 +32,7 @@ $(document).on('drop', async function (e) {
 	$('.drag').hide();
 
 	//Get Icon
-	let icon = isFolder ? './assets/icons/ico_folder.svg' : await getIcon(file.path);
+	let icon = isFolder ? './app/assets/icons/ico_folder.svg' : await getIcon(file.path);
 
 	//Show Details Screen
 	let HTML = await Details(file.name, file.path, icon, DB.get('lastApplication'), 'New');
