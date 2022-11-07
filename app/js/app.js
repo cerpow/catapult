@@ -1,6 +1,6 @@
 //Settings DB
 const Store = require('electron-store');
-const DB = new Store({ defaults: { openAtLogin: false, lastApplication: 'Finder', projects: [], theme: 'system', shortcut: 'Option+Space' } });
+const DB = new Store({ defaults: { openAtLogin: false, lastApplication: 'Finder', projects: [], theme: 'system', shortcut: true } });
 
 //Modules
 const remote = require('@electron/remote');
@@ -57,11 +57,6 @@ document.onkeydown = function (e) {
 
 //Set show shortcut
 async function setShortcut() {
-	try {
-		await ipcRenderer.invoke('setShortcut', DB.get('shortcut'));
-	} catch (e) {
-		DB.set('shortcut', 'Option+Space');
-		await ipcRenderer.invoke('setShortcut', 'Option+Space');
-	}
+	await ipcRenderer.invoke('setShortcut', DB.get('shortcut'));
 }
 setShortcut();

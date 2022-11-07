@@ -107,8 +107,8 @@ function showHide(e, isDrag, hide, shortcut) {
 }
 
 //Register show shortcut
-ipcMain.handle('setShortcut', (e, key) => {
-	globalShortcut.register(key, () => showHide(null, null, null, true));
+ipcMain.handle('setShortcut', (e, boole) => {
+	boole ? globalShortcut.register('Option+Space', () => showHide(null, null, null, true)) : globalShortcut.unregister('Option+Space');
 });
 
 //Hide Dock Icon

@@ -47,8 +47,24 @@ const settingsMenu = Menu.buildFromTemplate([
 		},
 	},
 	{
-		label: 'Set shortcut...',
-		type: 'normal',
+		label: 'Shortcut',
+		type: 'submenu',
+		submenu: [
+			{
+				label: 'Use shortcut (⌘ + space)',
+				type: 'checkbox',
+				checked: DB.get('shortcut'),
+				click() {
+					ipcRenderer.invoke('setShortcut', !DB.get('shortcut'));
+					DB.set('shortcut', !DB.get('shortcut'));
+				},
+			},
+			{
+				label: 'Set shortcut... (coming soon)',
+				type: 'normal',
+				enabled: false,
+			},
+		],
 	},
 	{
 		label: 'Theme',
