@@ -31,7 +31,14 @@
 		"productName": "Catapult",
 		"appId": "com.catapult.app",
 		"mac": {
-			"category": "public.app-category.utilities"
+			"category": "public.app-category.utilities",
+			"target": {
+				"target": "default",
+				"arch": [
+					"x64",
+					"arm64"
+				]
+			}
 		},
 		"directories": {
 			"buildResources": "app/assets/build"
