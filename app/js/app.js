@@ -26,7 +26,6 @@ $(() => showHome());
 
 //Show Home
 function showHome() {
-	console.log(projects);
 	projects.length ? Home() : GetStarted();
 }
 
