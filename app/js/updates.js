@@ -1,11 +1,13 @@
 //Modules
 const compareVersions = require('compare-versions');
 const axios = require('axios-slim');
+const os = require('os');
 
 //Check for updates
 function checkForUpdates(force) {
 	axios('https://api.github.com/repos/cerpow/catapult/releases')
 		.then(async function ({ body }) {
+			let architecture = os.arch();
 			let currentVer = remote.app.getVersion();
 			let updateVer = body[0].tag_name.replace('v', '');
 			let hasUpdate = compareVersions.compare(currentVer, updateVer, '<');
@@ -23,7 +25,15 @@ function checkForUpdates(force) {
 				]);
 
 				//Download latest version
-				if (response === 0) shell.openExternal(body[0].assets[0].browser_download_url);
+				if (response === 0) {
+					//Find the correct url for user architecture (x64 vs arm64)
+					const [{ browser_download_url }] = body[0].assets.filter((asset) => {
+						return architecture == 'arm64' ? asset.browser_download_url.includes('arm64') : !asset.browser_download_url.includes('arm64');
+					});
+
+					//Open url in browser
+					shell.openExternal(browser_download_url);
+				}
 
 				//Skip this version
 				if (response === 1) await DB.set('skipVersion', updateVer);

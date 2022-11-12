@@ -1,6 +1,6 @@
 {
 	"name": "catapult",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"description": "Access your workspace on the fly.",
 	"main": "main.js",
 	"scripts": {
@@ -19,6 +19,7 @@
 		"electron-store": "^8.1.0",
 		"extract-file-icon": "^0.3.2",
 		"open": "^8.4.0",
+		"os": "^0.1.2",
 		"sortablejs": "^1.15.0"
 	},
 	"devDependencies": {
