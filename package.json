@@ -12,21 +12,21 @@
 	"author": "Voicu Apostol",
 	"license": "MIT",
 	"dependencies": {
-		"@electron/remote": "^2.0.8",
+		"@electron/remote": "^2.0.11",
 		"axios-slim": "^1.0.1",
-		"cash-dom": "^8.1.1",
-		"compare-versions": "^5.0.1",
+		"cash-dom": "^8.1.5",
+		"compare-versions": "^6.1.0",
 		"electron-store": "^8.1.0",
 		"extract-file-icon": "^0.3.2",
-		"open": "^8.4.0",
+		"open": "8.4.2",
 		"os": "^0.1.2",
 		"sortablejs": "^1.15.0"
 	},
 	"devDependencies": {
-		"electron": "^21.2.2",
-		"electron-builder": "^23.6.0",
-		"nodemon": "^2.0.20",
-		"yarn-upgrade-all": "^0.7.1"
+		"electron": "^26.2.2",
+		"electron-builder": "^24.6.4",
+		"nodemon": "^3.0.1",
+		"yarn-upgrade-all": "^0.7.2"
 	},
 	"build": {
 		"productName": "Catapult",
