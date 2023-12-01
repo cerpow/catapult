@@ -7,26 +7,26 @@
 		"start": "nodemon --ext '.' --exec npm run electron",
 		"dev": "NODE_ENV=dev nodemon --ext '.' --exec npm run electron",
 		"electron": "electron .",
-		"build": "electron-builder"
+		"build": "electron-builder --mac --arm64"
 	},
 	"author": "Voicu Apostol",
 	"license": "MIT",
 	"dependencies": {
-		"@electron/remote": "^2.0.8",
+		"@electron/remote": "^2.1.0",
 		"axios-slim": "^1.0.1",
-		"cash-dom": "^8.1.1",
-		"compare-versions": "^5.0.1",
+		"cash-dom": "^8.1.5",
+		"compare-versions": "^6.1.0",
 		"electron-store": "^8.1.0",
 		"extract-file-icon": "^0.3.2",
-		"open": "^8.4.0",
+		"open": "8.4.0",
 		"os": "^0.1.2",
 		"sortablejs": "^1.15.0"
 	},
 	"devDependencies": {
-		"electron": "^21.2.2",
-		"electron-builder": "^23.6.0",
-		"nodemon": "^2.0.20",
-		"yarn-upgrade-all": "^0.7.1"
+		"electron": "^27.1.2",
+		"electron-builder": "^24.9.1",
+		"nodemon": "^3.0.1",
+		"yarn-upgrade-all": "^0.7.2"
 	},
 	"build": {
 		"productName": "Catapult",
